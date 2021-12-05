@@ -1144,6 +1144,7 @@
 `;
 
             var cy = window.cy = cytoscape({
+ 
                 container: document.getElementById('cy'),
 
                 style: [
@@ -1232,7 +1233,6 @@
                         layoutBy: 'cose'
                     });
                     this.graphml(graphStr);
-                    console.log(this.graphml());
                 }
             });
 
