@@ -18,12 +18,9 @@
     <script src="cytoscape-graphml.js"></script>
 
     <style>
-        body {
-            font-family: helvetica neue, helvetica, liberation sans, arial, sans-serif;
-            font-size: 14px;
-        }
 
         #cy {
+          font-family: 'IRANSans';
             position: absolute;
             left: 0;
             top: 0;
@@ -1149,10 +1146,31 @@
             var cy = window.cy = cytoscape({
                 container: document.getElementById('cy'),
 
-                style: [{
+                style: [
+                {
+  "selector": "core",
+  "style": {
+    "selection-box-color": "#AAD8FF",
+    "selection-box-border-color": "#8BB0D0",
+    "selection-box-opacity": "0.5"
+  }}
+  ,
+  {
                         selector: 'node',
                         style: {
-                            'content': 'data(v_label)'
+                            'content': 'data(v_label)',
+                            'font-family' : 'IRANSans',
+                            "font-size": "8px",
+    "text-valign": "center",
+    "text-halign": "center",
+    "background-color": "#555",
+    "text-outline-color": "#555",
+    "text-outline-width": "2px",
+    "color": "#fff",
+    "overlay-padding": "15px",
+    "z-index": "10",
+                            width: function(ele){ return ele.degree()*1.5; },
+    height: function(ele){ return ele.degree()*1.5; }
                         },
                         labelValign: "middle",
                     },
@@ -1160,7 +1178,12 @@
                     {
                         selector: 'edge',
                         style: {
-                            'target-arrow-shape': 'triangle'
+                            'target-arrow-shape': 'triangle',
+                            "curve-style": "haystack",
+    "haystack-radius": "0.5",
+    "opacity": "0.8",
+    "line-color": "#bbb",
+    "overlay-padding": "3px"
                         }
                     },
 
@@ -1215,7 +1238,7 @@
 
 
 
-            cy.nodes().style({"font-size": 20,"font-family":'IRANSans !important'});
+            
         });
     </script>
 </head>

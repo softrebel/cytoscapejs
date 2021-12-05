@@ -2,16 +2,16 @@
     font-family: IRANSans;
     font-style: normal;
     font-weight: normal;
-    src: url("#{$iransans-font-path}/eot/IRANSansWeb(FaNum).eot");
-    src: url("#{$iransans-font-path}/eot/IRANSansWeb(FaNum).eot?#iefix") format("embedded-opentype"),
+    src: url("fonts/eot/IRANSansWeb(FaNum).eot");
+    src: url("fonts/eot/IRANSansWeb(FaNum).eot?#iefix") format("embedded-opentype"),
     /* IE6-8 */
-    url("#{$iransans-font-path}/woff2/IRANSansWeb(FaNum).woff2") format("woff2"),
+    url("fonts/woff2/IRANSansWeb(FaNum).woff2") format("woff2"),
     /* FF39+,Chrome36+, Opera24+*/
-    url("#{$iransans-font-path}/woff/IRANSansWeb(FaNum).woff") format("woff"),
+    url("fonts/woff/IRANSansWeb(FaNum).woff") format("woff"),
     /* FF3.6+, IE9, Chrome6+, Saf5.1+*/
-    url("#{$iransans-font-path}/ttf/IRANSansWeb(FaNum).ttf") format("truetype");
+    url("fonts/ttf/IRANSansWeb(FaNum).ttf") format("truetype");
   }
-  
+
   body {
     font-family: IRANSans !important;
   }
