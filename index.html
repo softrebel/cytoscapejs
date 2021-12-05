@@ -1,0 +1,1230 @@
+<!DOCTYPE>
+
+<html>
+
+<head>
+    <title>cytoscape-graphml.js demo</title>
+
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
+
+
+    <script src="https://unpkg.com/cytoscape/dist/cytoscape.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.0.0.min.js"
+        integrity="sha256-JmvOoLtYsmqlsWxa7mDSLMwa6dZ9rrIdtrrVYRnDRH0=" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="styles.css" />
+    <!-- for testing with local version of cytoscape.js -->
+    <!--<script src="../cytoscape.js/build/cytoscape.js"></script>-->
+
+    <script src="cytoscape-graphml.js"></script>
+
+    <style>
+        body {
+            font-family: helvetica neue, helvetica, liberation sans, arial, sans-serif;
+            font-size: 14px;
+        }
+
+        #cy {
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            z-index: 999;
+        }
+
+        h1 {
+            opacity: 0.5;
+            font-size: 1em;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+
+            var graphStr = `<?xml version="1.0" encoding="UTF-8"?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns
+         http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+<!-- Created by igraph -->
+  <key id="v_label" for="node" attr.name="label" attr.type="string"/>
+  <graph id="G" edgedefault="undirected">
+    <node id="n0">
+      <data key="v_label">خوشه بندی</data>
+    </node>
+    <node id="n1">
+      <data key="v_label">اجتماع یابی</data>
+    </node>
+    <node id="n2">
+      <data key="v_label">بیمه</data>
+    </node>
+    <node id="n3">
+      <data key="v_label">بیمه اتومبیل</data>
+    </node>
+    <node id="n4">
+      <data key="v_label">داده کاوی</data>
+    </node>
+    <node id="n5">
+      <data key="v_label">هوش مصنوعی</data>
+    </node>
+    <node id="n6">
+      <data key="v_label">ایران</data>
+    </node>
+    <node id="n7">
+      <data key="v_label">تحلیل شبکه های اجتماعی</data>
+    </node>
+    <node id="n8">
+      <data key="v_label">بورس اوراق بهادار تهران</data>
+    </node>
+    <node id="n9">
+      <data key="v_label">مدیریت دانش مشتری</data>
+    </node>
+    <node id="n10">
+      <data key="v_label">ابزارهای آموزشی</data>
+    </node>
+    <node id="n11">
+      <data key="v_label">آموزش الکترونیکی</data>
+    </node>
+    <node id="n12">
+      <data key="v_label">تجهیزات</data>
+    </node>
+    <node id="n13">
+      <data key="v_label">مزیت رقابتی</data>
+    </node>
+    <node id="n14">
+      <data key="v_label">صنعت بانکداری</data>
+    </node>
+    <node id="n15">
+      <data key="v_label">مدیریت دانش</data>
+    </node>
+    <node id="n16">
+      <data key="v_label">کارایی نسبی</data>
+    </node>
+    <node id="n17">
+      <data key="v_label">کشاورزی</data>
+    </node>
+    <node id="n18">
+      <data key="v_label">ارزیابی عملکرد</data>
+    </node>
+    <node id="n19">
+      <data key="v_label">تشخیص ناهنجاری</data>
+    </node>
+    <node id="n20">
+      <data key="v_label">تشخیص تقلب</data>
+    </node>
+    <node id="n21">
+      <data key="v_label">هوش تجاری</data>
+    </node>
+    <node id="n22">
+      <data key="v_label">هوش وبی</data>
+    </node>
+    <node id="n23">
+      <data key="v_label">وب کاوی</data>
+    </node>
+    <node id="n24">
+      <data key="v_label">گردشگری</data>
+    </node>
+    <node id="n25">
+      <data key="v_label">تصمیم گیری چندمعیاره</data>
+    </node>
+    <node id="n26">
+      <data key="v_label">فناوری اطلاعات</data>
+    </node>
+    <node id="n27">
+      <data key="v_label">درخت تصمیم</data>
+    </node>
+    <node id="n28">
+      <data key="v_label">بیمارستان</data>
+    </node>
+    <node id="n29">
+      <data key="v_label">کشف دانش</data>
+    </node>
+    <node id="n30">
+      <data key="v_label">ارزیابی خطرپذیری</data>
+    </node>
+    <node id="n31">
+      <data key="v_label">پیش بینی</data>
+    </node>
+    <node id="n32">
+      <data key="v_label">رده بندی</data>
+    </node>
+    <node id="n33">
+      <data key="v_label">انتشار</data>
+    </node>
+    <node id="n34">
+      <data key="v_label">مدل باس</data>
+    </node>
+    <node id="n35">
+      <data key="v_label">نوآوری</data>
+    </node>
+    <node id="n36">
+      <data key="v_label">کانال ارتباطی</data>
+    </node>
+    <node id="n37">
+      <data key="v_label">مدیریت ارتباط با مشتری</data>
+    </node>
+    <node id="n38">
+      <data key="v_label">سلامت</data>
+    </node>
+    <node id="n39">
+      <data key="v_label">رویگردانی مشتری</data>
+    </node>
+    <node id="n40">
+      <data key="v_label">اینترنت</data>
+    </node>
+    <node id="n41">
+      <data key="v_label">رفتار مشتری</data>
+    </node>
+    <node id="n42">
+      <data key="v_label">شبکه های پیچیده</data>
+    </node>
+    <node id="n43">
+      <data key="v_label">گراف</data>
+    </node>
+    <node id="n44">
+      <data key="v_label">رضایت مشتری</data>
+    </node>
+    <node id="n45">
+      <data key="v_label">اعتبارسنجی</data>
+    </node>
+    <node id="n46">
+      <data key="v_label">نکول</data>
+    </node>
+    <node id="n47">
+      <data key="v_label">مشتری</data>
+    </node>
+    <node id="n48">
+      <data key="v_label">بانکداری</data>
+    </node>
+    <node id="n49">
+      <data key="v_label">عملکرد سازمان</data>
+    </node>
+    <node id="n50">
+      <data key="v_label">کیفیت خدمات</data>
+    </node>
+    <node id="n51">
+      <data key="v_label">داروخانه</data>
+    </node>
+    <node id="n52">
+      <data key="v_label">ریسک اعتباری</data>
+    </node>
+    <node id="n53">
+      <data key="v_label">وام بانکی</data>
+    </node>
+    <node id="n54">
+      <data key="v_label">زنجیره مارکوف</data>
+    </node>
+    <node id="n55">
+      <data key="v_label">ارزش مشتری</data>
+    </node>
+    <node id="n56">
+      <data key="v_label">شبکه های تنظیم ژنی</data>
+    </node>
+    <node id="n57">
+      <data key="v_label">یادگیری بازنمایی</data>
+    </node>
+    <node id="n58">
+      <data key="v_label">مدل ریاضی</data>
+    </node>
+    <node id="n59">
+      <data key="v_label">انتخاب سبد سهام</data>
+    </node>
+    <node id="n60">
+      <data key="v_label">بازاریابی</data>
+    </node>
+    <node id="n61">
+      <data key="v_label">هستان شناسی</data>
+    </node>
+    <node id="n62">
+      <data key="v_label">واکسن</data>
+    </node>
+    <node id="n63">
+      <data key="v_label">ارزش دوره عمر مشتری</data>
+    </node>
+    <node id="n64">
+      <data key="v_label">استدلال مبتنی بر مورد</data>
+    </node>
+    <node id="n65">
+      <data key="v_label">آسم</data>
+    </node>
+    <node id="n66">
+      <data key="v_label">تشخیص افتراقی</data>
+    </node>
+    <node id="n67">
+      <data key="v_label">یادگیری ماشین</data>
+    </node>
+    <node id="n68">
+      <data key="v_label">سرمایه گذاری</data>
+    </node>
+    <node id="n69">
+      <data key="v_label">سبد سهام</data>
+    </node>
+    <node id="n70">
+      <data key="v_label">ارز دیجیتال</data>
+    </node>
+    <node id="n71">
+      <data key="v_label">نقشه دانش</data>
+    </node>
+    <node id="n72">
+      <data key="v_label">بهینه سازی</data>
+    </node>
+    <node id="n73">
+      <data key="v_label">سرمایه فکری</data>
+    </node>
+    <node id="n74">
+      <data key="v_label">نگهداری و تعمیرات</data>
+    </node>
+    <node id="n75">
+      <data key="v_label">برنامه ریزی ریاضی</data>
+    </node>
+    <node id="n76">
+      <data key="v_label">دانش</data>
+    </node>
+    <node id="n77">
+      <data key="v_label">مدیریت ارتباط با بیمار</data>
+    </node>
+    <node id="n78">
+      <data key="v_label">صنعت بیمه</data>
+    </node>
+    <node id="n79">
+      <data key="v_label">شبکه عصبی</data>
+    </node>
+    <node id="n80">
+      <data key="v_label">کشف تقلب</data>
+    </node>
+    <node id="n81">
+      <data key="v_label">الگوریتم ژنتیک</data>
+    </node>
+    <node id="n82">
+      <data key="v_label">تشخیص الگوهای رفتاری</data>
+    </node>
+    <node id="n83">
+      <data key="v_label">متن کاوی</data>
+    </node>
+    <node id="n84">
+      <data key="v_label">مهندسی دانش</data>
+    </node>
+    <node id="n85">
+      <data key="v_label">نگاشت دانش</data>
+    </node>
+    <node id="n86">
+      <data key="v_label">مرکز تلفن</data>
+    </node>
+    <node id="n87">
+      <data key="v_label">مدیریت منابع انسانی</data>
+    </node>
+    <node id="n88">
+      <data key="v_label">همودیالیز</data>
+    </node>
+    <node id="n89">
+      <data key="v_label">مرکزیت</data>
+    </node>
+    <node id="n90">
+      <data key="v_label">تراکنش</data>
+    </node>
+    <node id="n91">
+      <data key="v_label">بازاریابی ویروسی</data>
+    </node>
+    <node id="n92">
+      <data key="v_label">تشخیص موجودیت نامدار</data>
+    </node>
+    <node id="n93">
+      <data key="v_label">تشخیص شکوفایی</data>
+    </node>
+    <node id="n94">
+      <data key="v_label">جریان داده</data>
+    </node>
+    <node id="n95">
+      <data key="v_label">سری زمانی</data>
+    </node>
+    <node id="n96">
+      <data key="v_label">بازاریابی مستقیم</data>
+    </node>
+    <edge source="n0" target="n2">
+    </edge>
+    <edge source="n0" target="n4">
+    </edge>
+    <edge source="n0" target="n4">
+    </edge>
+    <edge source="n0" target="n4">
+    </edge>
+    <edge source="n0" target="n4">
+    </edge>
+    <edge source="n0" target="n4">
+    </edge>
+    <edge source="n0" target="n14">
+    </edge>
+    <edge source="n0" target="n24">
+    </edge>
+    <edge source="n0" target="n25">
+    </edge>
+    <edge source="n0" target="n26">
+    </edge>
+    <edge source="n0" target="n27">
+    </edge>
+    <edge source="n0" target="n27">
+    </edge>
+    <edge source="n0" target="n27">
+    </edge>
+    <edge source="n0" target="n27">
+    </edge>
+    <edge source="n0" target="n27">
+    </edge>
+    <edge source="n0" target="n30">
+    </edge>
+    <edge source="n0" target="n32">
+    </edge>
+    <edge source="n0" target="n36">
+    </edge>
+    <edge source="n0" target="n37">
+    </edge>
+    <edge source="n0" target="n37">
+    </edge>
+    <edge source="n0" target="n37">
+    </edge>
+    <edge source="n0" target="n38">
+    </edge>
+    <edge source="n0" target="n42">
+    </edge>
+    <edge source="n0" target="n43">
+    </edge>
+    <edge source="n0" target="n44">
+    </edge>
+    <edge source="n0" target="n50">
+    </edge>
+    <edge source="n0" target="n54">
+    </edge>
+    <edge source="n0" target="n77">
+    </edge>
+    <edge source="n0" target="n83">
+    </edge>
+    <edge source="n1" target="n3">
+    </edge>
+    <edge source="n1" target="n4">
+    </edge>
+    <edge source="n1" target="n4">
+    </edge>
+    <edge source="n1" target="n7">
+    </edge>
+    <edge source="n1" target="n7">
+    </edge>
+    <edge source="n1" target="n7">
+    </edge>
+    <edge source="n1" target="n19">
+    </edge>
+    <edge source="n1" target="n42">
+    </edge>
+    <edge source="n1" target="n58">
+    </edge>
+    <edge source="n1" target="n58">
+    </edge>
+    <edge source="n1" target="n58">
+    </edge>
+    <edge source="n1" target="n75">
+    </edge>
+    <edge source="n1" target="n80">
+    </edge>
+    <edge source="n1" target="n81">
+    </edge>
+    <edge source="n1" target="n82">
+    </edge>
+    <edge source="n2" target="n3">
+    </edge>
+    <edge source="n2" target="n3">
+    </edge>
+    <edge source="n2" target="n4">
+    </edge>
+    <edge source="n2" target="n4">
+    </edge>
+    <edge source="n2" target="n4">
+    </edge>
+    <edge source="n2" target="n27">
+    </edge>
+    <edge source="n2" target="n30">
+    </edge>
+    <edge source="n2" target="n32">
+    </edge>
+    <edge source="n2" target="n37">
+    </edge>
+    <edge source="n2" target="n37">
+    </edge>
+    <edge source="n2" target="n44">
+    </edge>
+    <edge source="n2" target="n63">
+    </edge>
+    <edge source="n3" target="n4">
+    </edge>
+    <edge source="n3" target="n4">
+    </edge>
+    <edge source="n3" target="n4">
+    </edge>
+    <edge source="n3" target="n7">
+    </edge>
+    <edge source="n3" target="n80">
+    </edge>
+    <edge source="n4" target="n5">
+    </edge>
+    <edge source="n4" target="n6">
+    </edge>
+    <edge source="n4" target="n7">
+    </edge>
+    <edge source="n4" target="n7">
+    </edge>
+    <edge source="n4" target="n12">
+    </edge>
+    <edge source="n4" target="n14">
+    </edge>
+    <edge source="n4" target="n14">
+    </edge>
+    <edge source="n4" target="n15">
+    </edge>
+    <edge source="n4" target="n20">
+    </edge>
+    <edge source="n4" target="n24">
+    </edge>
+    <edge source="n4" target="n25">
+    </edge>
+    <edge source="n4" target="n25">
+    </edge>
+    <edge source="n4" target="n26">
+    </edge>
+    <edge source="n4" target="n27">
+    </edge>
+    <edge source="n4" target="n27">
+    </edge>
+    <edge source="n4" target="n27">
+    </edge>
+    <edge source="n4" target="n27">
+    </edge>
+    <edge source="n4" target="n27">
+    </edge>
+    <edge source="n4" target="n27">
+    </edge>
+    <edge source="n4" target="n27">
+    </edge>
+    <edge source="n4" target="n27">
+    </edge>
+    <edge source="n4" target="n27">
+    </edge>
+    <edge source="n4" target="n27">
+    </edge>
+    <edge source="n4" target="n27">
+    </edge>
+    <edge source="n4" target="n28">
+    </edge>
+    <edge source="n4" target="n28">
+    </edge>
+    <edge source="n4" target="n29">
+    </edge>
+    <edge source="n4" target="n30">
+    </edge>
+    <edge source="n4" target="n30">
+    </edge>
+    <edge source="n4" target="n31">
+    </edge>
+    <edge source="n4" target="n31">
+    </edge>
+    <edge source="n4" target="n31">
+    </edge>
+    <edge source="n4" target="n32">
+    </edge>
+    <edge source="n4" target="n32">
+    </edge>
+    <edge source="n4" target="n35">
+    </edge>
+    <edge source="n4" target="n36">
+    </edge>
+    <edge source="n4" target="n37">
+    </edge>
+    <edge source="n4" target="n37">
+    </edge>
+    <edge source="n4" target="n37">
+    </edge>
+    <edge source="n4" target="n37">
+    </edge>
+    <edge source="n4" target="n37">
+    </edge>
+    <edge source="n4" target="n37">
+    </edge>
+    <edge source="n4" target="n37">
+    </edge>
+    <edge source="n4" target="n38">
+    </edge>
+    <edge source="n4" target="n39">
+    </edge>
+    <edge source="n4" target="n39">
+    </edge>
+    <edge source="n4" target="n39">
+    </edge>
+    <edge source="n4" target="n39">
+    </edge>
+    <edge source="n4" target="n40">
+    </edge>
+    <edge source="n4" target="n40">
+    </edge>
+    <edge source="n4" target="n41">
+    </edge>
+    <edge source="n4" target="n41">
+    </edge>
+    <edge source="n4" target="n41">
+    </edge>
+    <edge source="n4" target="n41">
+    </edge>
+    <edge source="n4" target="n44">
+    </edge>
+    <edge source="n4" target="n44">
+    </edge>
+    <edge source="n4" target="n44">
+    </edge>
+    <edge source="n4" target="n45">
+    </edge>
+    <edge source="n4" target="n45">
+    </edge>
+    <edge source="n4" target="n46">
+    </edge>
+    <edge source="n4" target="n46">
+    </edge>
+    <edge source="n4" target="n47">
+    </edge>
+    <edge source="n4" target="n48">
+    </edge>
+    <edge source="n4" target="n51">
+    </edge>
+    <edge source="n4" target="n52">
+    </edge>
+    <edge source="n4" target="n53">
+    </edge>
+    <edge source="n4" target="n54">
+    </edge>
+    <edge source="n4" target="n55">
+    </edge>
+    <edge source="n4" target="n63">
+    </edge>
+    <edge source="n4" target="n64">
+    </edge>
+    <edge source="n4" target="n64">
+    </edge>
+    <edge source="n4" target="n65">
+    </edge>
+    <edge source="n4" target="n65">
+    </edge>
+    <edge source="n4" target="n66">
+    </edge>
+    <edge source="n4" target="n66">
+    </edge>
+    <edge source="n4" target="n72">
+    </edge>
+    <edge source="n4" target="n74">
+    </edge>
+    <edge source="n4" target="n74">
+    </edge>
+    <edge source="n4" target="n77">
+    </edge>
+    <edge source="n4" target="n78">
+    </edge>
+    <edge source="n4" target="n79">
+    </edge>
+    <edge source="n4" target="n79">
+    </edge>
+    <edge source="n4" target="n80">
+    </edge>
+    <edge source="n4" target="n80">
+    </edge>
+    <edge source="n4" target="n83">
+    </edge>
+    <edge source="n4" target="n86">
+    </edge>
+    <edge source="n4" target="n87">
+    </edge>
+    <edge source="n4" target="n88">
+    </edge>
+    <edge source="n4" target="n88">
+    </edge>
+    <edge source="n4" target="n96">
+    </edge>
+    <edge source="n5" target="n6">
+    </edge>
+    <edge source="n5" target="n21">
+    </edge>
+    <edge source="n5" target="n22">
+    </edge>
+    <edge source="n5" target="n23">
+    </edge>
+    <edge source="n5" target="n25">
+    </edge>
+    <edge source="n5" target="n35">
+    </edge>
+    <edge source="n5" target="n64">
+    </edge>
+    <edge source="n5" target="n65">
+    </edge>
+    <edge source="n5" target="n66">
+    </edge>
+    <edge source="n6" target="n16">
+    </edge>
+    <edge source="n6" target="n17">
+    </edge>
+    <edge source="n6" target="n18">
+    </edge>
+    <edge source="n6" target="n24">
+    </edge>
+    <edge source="n6" target="n27">
+    </edge>
+    <edge source="n6" target="n33">
+    </edge>
+    <edge source="n6" target="n34">
+    </edge>
+    <edge source="n6" target="n35">
+    </edge>
+    <edge source="n6" target="n38">
+    </edge>
+    <edge source="n7" target="n9">
+    </edge>
+    <edge source="n7" target="n10">
+    </edge>
+    <edge source="n7" target="n11">
+    </edge>
+    <edge source="n7" target="n12">
+    </edge>
+    <edge source="n7" target="n15">
+    </edge>
+    <edge source="n7" target="n15">
+    </edge>
+    <edge source="n7" target="n19">
+    </edge>
+    <edge source="n7" target="n33">
+    </edge>
+    <edge source="n7" target="n37">
+    </edge>
+    <edge source="n7" target="n41">
+    </edge>
+    <edge source="n7" target="n47">
+    </edge>
+    <edge source="n7" target="n48">
+    </edge>
+    <edge source="n7" target="n71">
+    </edge>
+    <edge source="n7" target="n72">
+    </edge>
+    <edge source="n7" target="n76">
+    </edge>
+    <edge source="n7" target="n80">
+    </edge>
+    <edge source="n7" target="n82">
+    </edge>
+    <edge source="n7" target="n83">
+    </edge>
+    <edge source="n7" target="n86">
+    </edge>
+    <edge source="n7" target="n87">
+    </edge>
+    <edge source="n7" target="n87">
+    </edge>
+    <edge source="n7" target="n89">
+    </edge>
+    <edge source="n7" target="n90">
+    </edge>
+    <edge source="n7" target="n91">
+    </edge>
+    <edge source="n8" target="n59">
+    </edge>
+    <edge source="n9" target="n13">
+    </edge>
+    <edge source="n9" target="n14">
+    </edge>
+    <edge source="n9" target="n15">
+    </edge>
+    <edge source="n9" target="n15">
+    </edge>
+    <edge source="n9" target="n37">
+    </edge>
+    <edge source="n9" target="n47">
+    </edge>
+    <edge source="n9" target="n48">
+    </edge>
+    <edge source="n10" target="n11">
+    </edge>
+    <edge source="n10" target="n12">
+    </edge>
+    <edge source="n11" target="n12">
+    </edge>
+    <edge source="n12" target="n31">
+    </edge>
+    <edge source="n12" target="n74">
+    </edge>
+    <edge source="n13" target="n14">
+    </edge>
+    <edge source="n13" target="n15">
+    </edge>
+    <edge source="n14" target="n15">
+    </edge>
+    <edge source="n14" target="n27">
+    </edge>
+    <edge source="n14" target="n36">
+    </edge>
+    <edge source="n14" target="n37">
+    </edge>
+    <edge source="n14" target="n46">
+    </edge>
+    <edge source="n14" target="n52">
+    </edge>
+    <edge source="n14" target="n53">
+    </edge>
+    <edge source="n15" target="n26">
+    </edge>
+    <edge source="n15" target="n37">
+    </edge>
+    <edge source="n15" target="n40">
+    </edge>
+    <edge source="n15" target="n47">
+    </edge>
+    <edge source="n15" target="n48">
+    </edge>
+    <edge source="n15" target="n64">
+    </edge>
+    <edge source="n15" target="n71">
+    </edge>
+    <edge source="n15" target="n73">
+    </edge>
+    <edge source="n15" target="n76">
+    </edge>
+    <edge source="n15" target="n83">
+    </edge>
+    <edge source="n15" target="n84">
+    </edge>
+    <edge source="n16" target="n17">
+    </edge>
+    <edge source="n16" target="n17">
+    </edge>
+    <edge source="n16" target="n18">
+    </edge>
+    <edge source="n17" target="n18">
+    </edge>
+    <edge source="n18" target="n49">
+    </edge>
+    <edge source="n19" target="n20">
+    </edge>
+    <edge source="n19" target="n82">
+    </edge>
+    <edge source="n21" target="n22">
+    </edge>
+    <edge source="n21" target="n23">
+    </edge>
+    <edge source="n22" target="n23">
+    </edge>
+    <edge source="n24" target="n25">
+    </edge>
+    <edge source="n24" target="n26">
+    </edge>
+    <edge source="n24" target="n27">
+    </edge>
+    <edge source="n24" target="n38">
+    </edge>
+    <edge source="n25" target="n26">
+    </edge>
+    <edge source="n25" target="n35">
+    </edge>
+    <edge source="n25" target="n64">
+    </edge>
+    <edge source="n25" target="n64">
+    </edge>
+    <edge source="n25" target="n65">
+    </edge>
+    <edge source="n25" target="n65">
+    </edge>
+    <edge source="n25" target="n66">
+    </edge>
+    <edge source="n25" target="n66">
+    </edge>
+    <edge source="n26" target="n40">
+    </edge>
+    <edge source="n26" target="n83">
+    </edge>
+    <edge source="n27" target="n28">
+    </edge>
+    <edge source="n27" target="n30">
+    </edge>
+    <edge source="n27" target="n32">
+    </edge>
+    <edge source="n27" target="n36">
+    </edge>
+    <edge source="n27" target="n37">
+    </edge>
+    <edge source="n27" target="n37">
+    </edge>
+    <edge source="n27" target="n37">
+    </edge>
+    <edge source="n27" target="n37">
+    </edge>
+    <edge source="n27" target="n37">
+    </edge>
+    <edge source="n27" target="n38">
+    </edge>
+    <edge source="n27" target="n38">
+    </edge>
+    <edge source="n27" target="n39">
+    </edge>
+    <edge source="n27" target="n39">
+    </edge>
+    <edge source="n27" target="n40">
+    </edge>
+    <edge source="n27" target="n41">
+    </edge>
+    <edge source="n27" target="n41">
+    </edge>
+    <edge source="n27" target="n41">
+    </edge>
+    <edge source="n27" target="n44">
+    </edge>
+    <edge source="n27" target="n44">
+    </edge>
+    <edge source="n27" target="n45">
+    </edge>
+    <edge source="n27" target="n46">
+    </edge>
+    <edge source="n27" target="n47">
+    </edge>
+    <edge source="n27" target="n48">
+    </edge>
+    <edge source="n27" target="n50">
+    </edge>
+    <edge source="n27" target="n54">
+    </edge>
+    <edge source="n27" target="n77">
+    </edge>
+    <edge source="n27" target="n78">
+    </edge>
+    <edge source="n27" target="n79">
+    </edge>
+    <edge source="n27" target="n79">
+    </edge>
+    <edge source="n27" target="n88">
+    </edge>
+    <edge source="n28" target="n51">
+    </edge>
+    <edge source="n29" target="n30">
+    </edge>
+    <edge source="n29" target="n31">
+    </edge>
+    <edge source="n29" target="n32">
+    </edge>
+    <edge source="n29" target="n61">
+    </edge>
+    <edge source="n29" target="n61">
+    </edge>
+    <edge source="n29" target="n62">
+    </edge>
+    <edge source="n29" target="n62">
+    </edge>
+    <edge source="n30" target="n31">
+    </edge>
+    <edge source="n30" target="n32">
+    </edge>
+    <edge source="n30" target="n32">
+    </edge>
+    <edge source="n30" target="n37">
+    </edge>
+    <edge source="n30" target="n44">
+    </edge>
+    <edge source="n31" target="n32">
+    </edge>
+    <edge source="n31" target="n74">
+    </edge>
+    <edge source="n32" target="n37">
+    </edge>
+    <edge source="n32" target="n44">
+    </edge>
+    <edge source="n33" target="n34">
+    </edge>
+    <edge source="n33" target="n35">
+    </edge>
+    <edge source="n33" target="n35">
+    </edge>
+    <edge source="n33" target="n91">
+    </edge>
+    <edge source="n33" target="n91">
+    </edge>
+    <edge source="n34" target="n35">
+    </edge>
+    <edge source="n35" target="n64">
+    </edge>
+    <edge source="n35" target="n65">
+    </edge>
+    <edge source="n35" target="n66">
+    </edge>
+    <edge source="n36" target="n37">
+    </edge>
+    <edge source="n37" target="n38">
+    </edge>
+    <edge source="n37" target="n39">
+    </edge>
+    <edge source="n37" target="n39">
+    </edge>
+    <edge source="n37" target="n40">
+    </edge>
+    <edge source="n37" target="n41">
+    </edge>
+    <edge source="n37" target="n41">
+    </edge>
+    <edge source="n37" target="n44">
+    </edge>
+    <edge source="n37" target="n44">
+    </edge>
+    <edge source="n37" target="n47">
+    </edge>
+    <edge source="n37" target="n48">
+    </edge>
+    <edge source="n37" target="n50">
+    </edge>
+    <edge source="n37" target="n54">
+    </edge>
+    <edge source="n37" target="n55">
+    </edge>
+    <edge source="n37" target="n60">
+    </edge>
+    <edge source="n37" target="n63">
+    </edge>
+    <edge source="n37" target="n63">
+    </edge>
+    <edge source="n37" target="n77">
+    </edge>
+    <edge source="n37" target="n96">
+    </edge>
+    <edge source="n38" target="n50">
+    </edge>
+    <edge source="n38" target="n77">
+    </edge>
+    <edge source="n39" target="n40">
+    </edge>
+    <edge source="n39" target="n41">
+    </edge>
+    <edge source="n39" target="n41">
+    </edge>
+    <edge source="n39" target="n63">
+    </edge>
+    <edge source="n39" target="n78">
+    </edge>
+    <edge source="n39" target="n79">
+    </edge>
+    <edge source="n40" target="n41">
+    </edge>
+    <edge source="n40" target="n83">
+    </edge>
+    <edge source="n41" target="n44">
+    </edge>
+    <edge source="n41" target="n44">
+    </edge>
+    <edge source="n41" target="n78">
+    </edge>
+    <edge source="n41" target="n79">
+    </edge>
+    <edge source="n41" target="n83">
+    </edge>
+    <edge source="n42" target="n43">
+    </edge>
+    <edge source="n42" target="n58">
+    </edge>
+    <edge source="n42" target="n59">
+    </edge>
+    <edge source="n42" target="n59">
+    </edge>
+    <edge source="n42" target="n75">
+    </edge>
+    <edge source="n42" target="n75">
+    </edge>
+    <edge source="n42" target="n81">
+    </edge>
+    <edge source="n43" target="n67">
+    </edge>
+    <edge source="n43" target="n92">
+    </edge>
+    <edge source="n44" target="n55">
+    </edge>
+    <edge source="n45" target="n46">
+    </edge>
+    <edge source="n45" target="n47">
+    </edge>
+    <edge source="n45" target="n48">
+    </edge>
+    <edge source="n46" target="n47">
+    </edge>
+    <edge source="n46" target="n48">
+    </edge>
+    <edge source="n46" target="n52">
+    </edge>
+    <edge source="n46" target="n53">
+    </edge>
+    <edge source="n47" target="n48">
+    </edge>
+    <edge source="n47" target="n48">
+    </edge>
+    <edge source="n50" target="n77">
+    </edge>
+    <edge source="n52" target="n53">
+    </edge>
+    <edge source="n54" target="n60">
+    </edge>
+    <edge source="n55" target="n96">
+    </edge>
+    <edge source="n56" target="n57">
+    </edge>
+    <edge source="n56" target="n57">
+    </edge>
+    <edge source="n58" target="n75">
+    </edge>
+    <edge source="n58" target="n81">
+    </edge>
+    <edge source="n61" target="n62">
+    </edge>
+    <edge source="n61" target="n62">
+    </edge>
+    <edge source="n61" target="n85">
+    </edge>
+    <edge source="n64" target="n65">
+    </edge>
+    <edge source="n64" target="n65">
+    </edge>
+    <edge source="n64" target="n66">
+    </edge>
+    <edge source="n64" target="n66">
+    </edge>
+    <edge source="n64" target="n84">
+    </edge>
+    <edge source="n65" target="n66">
+    </edge>
+    <edge source="n65" target="n66">
+    </edge>
+    <edge source="n67" target="n92">
+    </edge>
+    <edge source="n67" target="n92">
+    </edge>
+    <edge source="n68" target="n69">
+    </edge>
+    <edge source="n68" target="n69">
+    </edge>
+    <edge source="n68" target="n70">
+    </edge>
+    <edge source="n68" target="n70">
+    </edge>
+    <edge source="n69" target="n70">
+    </edge>
+    <edge source="n69" target="n70">
+    </edge>
+    <edge source="n72" target="n86">
+    </edge>
+    <edge source="n72" target="n87">
+    </edge>
+    <edge source="n75" target="n81">
+    </edge>
+    <edge source="n76" target="n85">
+    </edge>
+    <edge source="n78" target="n79">
+    </edge>
+    <edge source="n79" target="n88">
+    </edge>
+    <edge source="n81" target="n93">
+    </edge>
+    <edge source="n81" target="n94">
+    </edge>
+    <edge source="n81" target="n95">
+    </edge>
+    <edge source="n86" target="n87">
+    </edge>
+    <edge source="n89" target="n90">
+    </edge>
+    <edge source="n93" target="n94">
+    </edge>
+    <edge source="n93" target="n95">
+    </edge>
+    <edge source="n93" target="n95">
+    </edge>
+    <edge source="n94" target="n95">
+    </edge>
+  </graph>
+</graphml>
+
+`;
+
+            var cy = window.cy = cytoscape({
+                container: document.getElementById('cy'),
+
+                style: [{
+                        selector: 'node',
+                        style: {
+                            'content': 'data(v_label)'
+                        },
+                        labelValign: "middle",
+                    },
+
+                    {
+                        selector: 'edge',
+                        style: {
+                            'target-arrow-shape': 'triangle'
+                        }
+                    },
+
+                    {
+                        selector: ':selected',
+                        style: {
+
+                        }
+                    }
+                ],
+                zoom: 1,
+                pan: {
+                    x: 0,
+                    y: 0
+                },
+
+                // interaction options:
+                minZoom: 1e-50,
+                maxZoom: 1e50,
+                zoomingEnabled: true,
+                userZoomingEnabled: true,
+                panningEnabled: true,
+                userPanningEnabled: true,
+                boxSelectionEnabled: true,
+                selectionType: 'single',
+                touchTapThreshold: 8,
+                desktopTapThreshold: 4,
+                autolock: false,
+                autoungrabify: false,
+                autounselectify: false,
+                multiClickDebounceTime: 250,
+                minNodeSpacing: 300,
+                fit: true, // whether to fit the viewport to the graph
+              
+                // rendering options:
+                headless: false,
+                styleEnabled: true,
+                hideEdgesOnViewport: false,
+                textureOnViewport: false,
+                motionBlur: false,
+                motionBlurOpacity: 0.2,
+                wheelSensitivity: 1,
+                pixelRatio: 'auto',
+                ready: function () {
+                    this.graphml({
+                        layoutBy: 'cose'
+                    });
+                    this.graphml(graphStr);
+                    console.log(this.graphml());
+                }
+            });
+
+
+
+            cy.nodes().style({"font-size": 20,"font-family":'IRANSans !important'});
+        });
+    </script>
+</head>
+
+<body>
+    <h1>cytoscape-graphml demo</h1>
+
+    <div id="cy"></div>
+
+</body>
+
+</html>
